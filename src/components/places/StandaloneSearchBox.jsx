@@ -57,9 +57,10 @@ class SearchBox extends React.PureComponent {
     /*
      * @see https://developers.google.com/maps/documentation/javascript/3.exp/reference#SearchBox
      */
-    const searchBox = new google.maps.places.SearchBox(
+    let searchBox = new google.maps.places.SearchBox(
       element.querySelector("input") || element
     )
+    searchBox.setComponentRestrictions({ country: 'mx' });
     construct(SearchBox.propTypes, updaterMap, this.props, searchBox)
 
     componentDidMount(this, searchBox, eventMap)
